@@ -1,34 +1,9 @@
-import discord from '../../assets/header/discord.svg'
-import github from '../../assets/header/github.svg'
-import reddit from '../../assets/header/reddit.svg'
-import twitter from '../../assets/header/twitter.svg'
 import azen from '../../assets/home/azen.svg'
-
 import Container from '../container/Container'
 import SocialLinks from './SocialLinks'
 
 const Subscribe = () => {
-    const icons = [
-        {
-            id: 1,
-            icon: github,
-            name: 'github'
-        },
-        {
-            id: 2,
-            icon: reddit,
-            name: 'reddit'
-        },
-        {
-            id: 3,
-            icon: discord,
-            name: 'discord'
-        },
-        {
-            id: 4,
-            icon: twitter
-        },
-    ]
+
     return (
         <Container>
             <div className='w-full px-6 md:px-24 md:py-[1.4rem] mt-44 md:mt-32 flex flex-col  gap-10 md:gap-1 items-center md:items-end'>
