@@ -1,0 +1,91 @@
+.gradient-text1 {
+    background-image: linear-gradient(90deg,  #4AFF86, #006F25);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .gradient-background1 {
+    background-image: linear-gradient(90deg, #4AFF86, #006F25);
+  }
+
+  .shadow-animate-button1 {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.shadow-animate-button1::after, .shadow-animate-button1::before {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 2px;
+  border-radius: 40px;
+  background-image: conic-gradient(from var(--angle),#4AFF86, #006F25, #4AFF86);
+  animation: 3s spin1 linear infinite;
+}
+
+.shadow-animate-button1::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin1 {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.animate-text {
+  animation: slide-up 16s infinite;
+}
+
+@keyframes slide-up {
+  0%, 20% {
+    transform: translateY(0%);
+  }
+  23% {
+    transform: translateY(-20%);
+  }
+  24% {
+    transform: translateY(0%);
+  }
+  25%, 45% {
+    transform: translateY(-100%);
+  }
+  47% {
+    transform: translateY(-120%);
+  }
+  48% {
+    transform: translateY(-100%);
+  }
+  50%, 70% {
+    transform: translateY(-200%);
+  }
+  72% {
+    transform: translateY(-220%);
+  }
+  73% {
+    transform: translateY(-200%);
+  }
+  75%, 100% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform:  translateY(0%);
+  }
+}
