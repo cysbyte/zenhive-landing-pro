@@ -70,7 +70,7 @@
 
 .logo-animation {
   display: inline-flex;
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 16s linear infinite;
 }
 
 .delay1 {
