@@ -37,8 +37,8 @@ const Subscribe = () => {
             </div>
             <div className='w-full px-6 md:px-24 py-3 flex flex-row justify-between items-center text-[#E6E6E6] text-[12px] md:text-[18px] leading-[18px] md:leading-[27px] md:gap-8 md:pb-12 mb-4 md:mb-0'>
                 <p className='font-montserrat'>© 2024 aZen Protcol</p>
-                <div>
-                    <a className='font-montserrat underline mr-2 md:mr-2' href="">White Paper</a>
+                <div className='flex gap-2'>
+                    <a className='font-montserrat underline' href="">White Paper</a>
                     <a className='font-montserrat underline' href="">Privacy Policy</a>
                 </div>
             </div>
