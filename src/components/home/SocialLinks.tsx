@@ -10,34 +10,42 @@ const SocialLinks = () => {
     const icons = [
         {
           id: 1,
-          icon: twitter
+          icon: twitter,
+          link: 'https://x.com/azen_protocol'
         },
         {
           id: 2,
-          icon: telegram
+          icon: telegram,
+          link: 'https://t.me/azenprotocol'
         },
         {
           id: 3,
-          icon: youtube
+          icon: youtube,
+          link: ''
         },
         {
           id: 4,
-          icon: medium
+          icon: medium,
+          link: 'https://medium.com/@azenprotocol'
         },
         {
           id: 5,
-          icon: email
+          icon: email,
+          link: 'mailto:Support@azenprotocol.io'
         },
         {
           id: 6,
-          icon: linkedin
+          icon: linkedin,
+          link: 'https://www.linkedin.com/company/azenprotocol/'
         },
       ]
   return (
     <div className='z-10 flex justify-center items-center gap-[0.88rem] md:gap-4'>
           {
             icons.map((item)=>(
-              <img className='w-[28px] md:w-auto' key={item.id} src={item.icon}/>
+              <a href={item.link} target='_blank'>
+                <img className='w-[28px] md:w-auto' key={item.id} src={item.icon}/>
+              </a>
             ))
           }
         </div>
