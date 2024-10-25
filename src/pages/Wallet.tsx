@@ -68,7 +68,7 @@ const Wallet = () => {
   return (
     <div className='w-screen h-screen flex flex-col gap-2 justify-center items-center'>
       <button onClick={connectWallet} className="bg-blue-500 text-white px-4 py-2 rounded">
-        Connect MetaMask
+        {!account ? 'Connect MetaMask':'MetaMask is connected'}
       </button>
       {account && <p>Connected account: {account}</p>}
       {chain && <p>Connected chain: {chain}</p>}
