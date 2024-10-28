@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
-import detectEthereumProvider from '@metamask/detect-provider';
 declare var window: any
 
 const Wallet = () => {
