@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
+import detectEthereumProvider from '@metamask/detect-provider';
+import ContractInteractions from '../components/wallet/ContractInteraction';
 declare var window: any
 
 const Wallet = () => {
@@ -8,6 +10,21 @@ const Wallet = () => {
     const [chain, setChain] = useState<BigInt | null>(null);
     const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
 
+    const handleAccountChange = (accounts: string[]) => {
+        window.location.reload()
+        console.log(accounts)
+        if (accounts.length > 0) {
+            setAccount(accounts[0]);
+            console.log("Account changed to:", accounts[0]);
+
+        } else {
+            setAccount(null);
+            console.log("MetaMask is locked or no accounts are available.");
+        }
+    };
+    const handleChainChange = (chainId: BigInt) => {
+        setChain(chainId)
+    };
 
     const connectWallet = async () => {
         if (typeof window === "undefined") {
@@ -33,26 +50,12 @@ const Wallet = () => {
         }
     };
 
-    const handleAccountChange = (accounts: string[]) => {
-        console.log(accounts)
-        if (accounts.length > 0) {
-            setAccount(accounts[0]);
-            console.log("Account changed to:", accounts[0]);
-        } else {
-            setAccount(null);
-            console.log("MetaMask is locked or no accounts are available.");
-        }
-    };
-    const handleChainChange = (chainId: BigInt) => {
-        setChain(chainId)
-    };
-
-    // const setAccountListener = (provider: any) => {
-    //     provider.on("accountsChanged", handleAccountChange)
-    //     provider.on("chainChanged", handleChainChange)
-    //     provider.on("connect", ()=>console.log('connected'));
-    //     provider.on("disconnect", ()=>console.log('disconnected'));
-    // }
+    const setAccountListener = (provider: any) => {
+        provider.on("accountsChanged", handleAccountChange)
+        provider.on("chainChanged", handleChainChange)
+        provider.on("connect", ()=>console.log('connected'));
+        provider.on("disconnect", ()=>console.log('disconnected'));
+    }
 
     useEffect(() => {
         const loadProvider = async () => {
@@ -66,25 +69,25 @@ const Wallet = () => {
                 setChain((await provider.getNetwork()).chainId)
             }
 
-            // const ethereumProvider = await detectEthereumProvider()
-            // if (ethereumProvider) {
-            //     setAccountListener(ethereumProvider)
-            // }
-
-            if (window.ethereum) {
-                // Listen for account changes
-                window.ethereum.on('accountsChanged', handleAccountChange)
-
-                // Listen for network changes
-                window.ethereum.on('chainChanged', handleChainChange);
-                // window.ethereum.on('connect', ()=>console.log('connected'));
-                // window.ethereum.on('disconnect', ()=>console.log('disconnected'));
-
-                return () => {
-                    window.ethereum.removeListener('accountsChanged', handleAccountChange);
-                    window.ethereum.removeListener('chainChanged', handleChainChange);
-                };
+            const ethereumProvider = await detectEthereumProvider()
+            if (ethereumProvider) {
+                setAccountListener(ethereumProvider)
             }
+
+            // if (window.ethereum) {
+            //     // Listen for account changes
+            //     window.ethereum.on('accountsChanged', handleAccountChange)
+
+            //     // Listen for network changes
+            //     window.ethereum.on('chainChanged', handleChainChange);
+            //     // window.ethereum.on('connect', ()=>console.log('connected'));
+            //     // window.ethereum.on('disconnect', ()=>console.log('disconnected'));
+
+            //     return () => {
+            //         window.ethereum.removeListener('accountsChanged', handleAccountChange);
+            //         window.ethereum.removeListener('chainChanged', handleChainChange);
+            //     };
+            // }
 
         }
         loadProvider()
@@ -108,6 +111,7 @@ const Wallet = () => {
             </button>
             {account && <p>Connected account: {account}</p>}
             {chain && <p>Connected chain: 0x{chain.toString(16).replace('0x', '')}</p>}
+            <ContractInteractions provider={provider} userAddress={account!}/>
         </div>
     )
 }
