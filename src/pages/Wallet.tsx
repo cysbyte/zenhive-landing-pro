@@ -7,7 +7,7 @@ const Wallet = () => {
 
     const [account, setAccount] = useState<string | null>(null);
     const [chain, setChain] = useState<BigInt | null>(null);
-    const [_, setProvider] = useState<ethers.BrowserProvider | null>(null);
+    const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
 
 
     const connectWallet = async () => {
@@ -18,8 +18,8 @@ const Wallet = () => {
             try {
                 const provider = new ethers.BrowserProvider(window.ethereum);
                 await provider.send("eth_requestAccounts", []);
-                const signer = provider.getSigner();
-                const userAddress = await (await signer).getAddress();
+                const signer = await provider.getSigner();
+                const userAddress = await signer.getAddress();
 
                 setProvider(provider);
                 setAccount(userAddress);
@@ -35,6 +35,7 @@ const Wallet = () => {
     };
 
     const handleAccountChange = (accounts: string[]) => {
+        console.log(accounts)
         if (accounts.length > 0) {
             setAccount(accounts[0]);
             console.log("Account changed to:", accounts[0]);
@@ -47,10 +48,12 @@ const Wallet = () => {
         setChain(chainId)
     };
 
-    const setAccountListener = (provider: any) => {
-        provider.on("accountsChanged", handleAccountChange)
-        provider.on("chainChanged", handleChainChange)
-    }
+    // const setAccountListener = (provider: any) => {
+    //     provider.on("accountsChanged", handleAccountChange)
+    //     provider.on("chainChanged", handleChainChange)
+    //     provider.on("connect", ()=>console.log('connected'));
+    //     provider.on("disconnect", ()=>console.log('disconnected'));
+    // }
 
     useEffect(() => {
         const loadProvider = async () => {
@@ -64,28 +67,40 @@ const Wallet = () => {
                 setChain((await provider.getNetwork()).chainId)
             }
 
-            const ethereumProvider = await detectEthereumProvider()
-            if (ethereumProvider) {
-                setAccountListener(ethereumProvider)
-            }
-
-            // if (window.ethereum) {
-            //     // Listen for account changes
-            //     window.ethereum.on('accountsChanged', handleAccountChange)
-
-            //     // Listen for network changes
-            //     window.ethereum.on('chainChanged', handleChainChange);
-
-            //     return () => {
-            //         window.ethereum.removeListener('accountsChanged', handleAccountChange);
-            //         window.ethereum.removeListener('chainChanged', handleChainChange);
-            //     };
+            // const ethereumProvider = await detectEthereumProvider()
+            // if (ethereumProvider) {
+            //     setAccountListener(ethereumProvider)
             // }
+
+            if (window.ethereum) {
+                // Listen for account changes
+                window.ethereum.on('accountsChanged', handleAccountChange)
+
+                // Listen for network changes
+                window.ethereum.on('chainChanged', handleChainChange);
+                // window.ethereum.on('connect', ()=>console.log('connected'));
+                // window.ethereum.on('disconnect', ()=>console.log('disconnected'));
+
+                return () => {
+                    window.ethereum.removeListener('accountsChanged', handleAccountChange);
+                    window.ethereum.removeListener('chainChanged', handleChainChange);
+                };
+            }
 
         }
         loadProvider()
     }, []);
 
+    useEffect(() => {
+        const getAccount = async () => {
+            const signer = await provider?.getSigner();
+            const userAddress = await signer?.getAddress();
+            if (userAddress) {
+                setAccount(userAddress)
+            }
+        }
+        provider && getAccount()
+    }, [provider])
 
     return (
         <div className='w-screen h-screen flex flex-col gap-2 justify-center items-center'>
@@ -93,7 +108,7 @@ const Wallet = () => {
                 {!account ? 'Connect MetaMask' : 'MetaMask is connected'}
             </button>
             {account && <p>Connected account: {account}</p>}
-            {chain && <p>Connected chain: {chain.toString(16)}</p>}
+            {chain && <p>Connected chain: 0x{chain.toString(16).replace('0x', '')}</p>}
         </div>
     )
 }
