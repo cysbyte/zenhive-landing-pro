@@ -1,4 +1,4 @@
-import computer from '../../../assets/home/key-features/computer.svg'
+import computer from '../../../assets/home/key-features/computer.png'
 import icon1 from '../../../assets/home/key-features/icons/icon1.svg'
 import icon2 from '../../../assets/home/key-features/icons/icon2.svg'
 import icon3 from '../../../assets/home/key-features/icons/icon3.svg'
@@ -50,8 +50,8 @@ const KeyFeatures = () => {
             {/* <div className="hidden md:block bg-[url('assets/home/key-features/whatsapp2.svg')] bg-center w-[43rem] ml-60 lg:ml-0 h-auto mt-28">
                 <img className='w-[43rem] -ml-[3rem] md:-ml-[7rem] mt-0' src={whatsapp1} alt='' />
             </div> */}
-            <img className='hidden md:block -ml-24 mt-24' src={computer} alt='' />
-            <div className='flex-1 ml-0 lg:-ml-[20rem] w-full grid grid-cols-1 md:grid-cols-2 grid-rows-3 gap-x-16 gap-y-6 md:gap-y-9 mt-7 text-left font-dmsans tracking-wide'>
+            <img className='hidden md:block -ml-28 mt-20 w-[900px]' src={computer} alt='' />
+            <div className='flex-1 ml-0 md:-ml-[20rem] w-full grid grid-cols-1 md:grid-cols-2 grid-rows-3 gap-x-16 gap-y-6 md:gap-y-9 mt-8 md:mt-24 text-left font-dmsans tracking-wide'>
                 {
                     data.map((item) => (
                         <div key={item.id}>

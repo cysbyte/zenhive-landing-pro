@@ -10,9 +10,9 @@ const Feature = () => {
   return (
     <Container>
       <div className='px-5 lg:px-24 py-10 md:py-14 text-center relative'>
-        <img className='absolute -left-[1rem] top-[38rem] ' src={milky1} alt=''/>
+        <img className='absolute left-0 top-[38rem] ' src={milky1} alt=''/>
         <img className='absolute left-2 top-[66rem] ' src={milky2} alt=''/>
-        <h2 className='hidden md:block font-montserratBold font-[550] mt-6 text-[30px] md:text-[48px] leading-[52px] tracking-[-0.6px] text-[#1ED760]'>ZenHive Mass Commercial Adoption</h2>
+        <h2 className='hidden md:block font-montserratBold font-[550] mt-16 text-[30px] md:text-[48px] leading-[52px] tracking-[-0.6px] text-[#1ED760]'>ZenHive Mass Commercial Adoption</h2>
         <h2 className='block md:hidden text-left font-montserratBold font-[550] mt-6 text-[22px] leading-[28px] tracking-[-0.6px] text-[#1ED760]'>ZenHive Mass <br/>Commercial Adoption</h2>
         <Features />
         <h2 className='hidden md:block mt-40 font-montserratBold font-[550] text-[30px] md:text-[48px] leading-[52px] tracking-[-0.6px] text-[#1ED760]'>ZenHive’s Key Features</h2>

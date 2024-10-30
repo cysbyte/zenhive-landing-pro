@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
-import bgConnectWallet from '../../assets/home/header/bg-connect-wallet.svg'
 declare var window: any
 
 const ConnectWallet = () => {
@@ -92,7 +91,11 @@ const ConnectWallet = () => {
   }, [provider])
 
   return (
-    <img className="cursor-pointer z-10" onClick={handleConnectWallet} src={bgConnectWallet} alt=""/>
+    <button className='w-full md:w-auto bg-gradient-to-r from-[#3AE071] to-[#006F25] rounded-full text-white font-montserrat text-[14px] md:text-[18px] leading-[22px] tracking-wide cursor-pointer p-[2px]'
+    onClick={handleConnectWallet}
+    ><p className='bg-black px-8 py-5 rounded-full'>Connect Wallet</p>
+    </button>
+
   )
 }
 

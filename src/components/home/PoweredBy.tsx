@@ -5,7 +5,7 @@ import linux from '../../assets/home/powered-by/linux.svg'
 
 const PoweredBy = () => {
     return (
-        <div className='w-full flex flex-col md:flex-row mx-auto py-4 mt-10 md:mt-0 border-[1px] border-[#262626] rounded-xl'>
+        <div className='w-full flex flex-col md:flex-row mx-auto py-4 mt-10 md:mt-20 border-[1px] border-[#262626] rounded-xl'>
             <div className='flex-1 flex justify-center md:justify-start items-center py-4 border-r border-[#262626]'>
                 <div className='flex flex-col md:flex-row ml-0 md:ml-16 gap-8'>
                     <h3 className='font-montserrat font-[500] text-20 md:text-[28px] leadign-[52px] text-white'>Powered by :</h3>
