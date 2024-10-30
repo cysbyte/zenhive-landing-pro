@@ -50,7 +50,7 @@ const KeyFeatures = () => {
             {/* <div className="hidden md:block bg-[url('assets/home/key-features/whatsapp2.svg')] bg-center w-[43rem] ml-60 lg:ml-0 h-auto mt-28">
                 <img className='w-[43rem] -ml-[3rem] md:-ml-[7rem] mt-0' src={whatsapp1} alt='' />
             </div> */}
-            <img className='-ml-24 mt-24' src={computer} alt='' />
+            <img className='hidden md:block -ml-24 mt-24' src={computer} alt='' />
             <div className='flex-1 ml-0 lg:-ml-[20rem] w-full grid grid-cols-1 md:grid-cols-2 grid-rows-3 gap-x-16 gap-y-6 md:gap-y-9 mt-7 text-left font-dmsans tracking-wide'>
                 {
                     data.map((item) => (
