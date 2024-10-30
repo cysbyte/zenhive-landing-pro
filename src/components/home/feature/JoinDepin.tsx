@@ -1,7 +1,6 @@
 
 import nft1 from '../../../assets/home/join-depin/nft1.svg'
 import nft2 from '../../../assets/home/join-depin/nft2.svg'
-import sign from '../../../assets/home/join-depin/sign.svg'
 
 const JoinDepin = () => {
     const data = [
