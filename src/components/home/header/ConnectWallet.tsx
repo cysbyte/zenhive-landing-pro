@@ -1,12 +1,12 @@
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useWalletContext } from "../../../providers/WalletProvider";
 
 declare var window: any
 
 const ConnectWallet = () => {
 
-  const { account, setAccount, chain, setChain, provider, setProvider } = useWalletContext();
+  const {  setAccount, setChain, provider, setProvider } = useWalletContext();
   
 
   const handleAccountChange = (accounts: string[]) => {
