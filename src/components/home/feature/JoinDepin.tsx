@@ -1,5 +1,4 @@
 
-import { div } from 'framer-motion/client'
 import nft from '../../../assets/home/join-depin/nft.png'
 import sign from '../../../assets/home/join-depin/sign.svg'
 

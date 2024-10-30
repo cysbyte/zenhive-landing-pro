@@ -4,7 +4,7 @@ import JoinDepin from './feature/JoinDepin'
 import KeyFeatures from './feature/KeyFeatures'
 import milky1 from '../../assets/home/milky1.svg'
 import milky2 from '../../assets/home/milky2.svg'
-import PoweredBy from './poweredBy'
+import PoweredBy from './PoweredBy'
 
 const Feature = () => {
   return (
