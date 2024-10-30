@@ -29,9 +29,9 @@ const Features = () => {
         <div className='flex flex-col gap-10 lg:gap-[1.4rem] lg:flex-row w-full justify-between items-center mt-8 md:mt-11'>
             {
                 data.map((item) => (
-                    <div className='flex-1 bg-gradient-to-r from-[#4AFF86AF] to-[#00CD44B2] rounded-2xl p-[1px]'>
+                    <div key={item.id} className='flex-1 bg-gradient-to-r from-[#4AFF86AF] to-[#00CD44B2] rounded-2xl p-[1px]'>
                         <div className='bg-black rounded-2xl'>
-                            <div key={item.id} className='bg-white bg-opacity-5 flex-1 min-h-[390px] min-w-[335px] md:min-w-[384px] px-5 py-4 md:px-8 md:py-8 w-full rounded-2xl'>
+                            <div className='bg-white bg-opacity-5 flex-1 min-h-[390px] min-w-[335px] md:min-w-[384px] px-5 py-4 md:px-8 md:py-8 w-full rounded-2xl'>
                                 {
                                     item.id < 3 ? 
                                     <img src={item.icon} alt='' /> :

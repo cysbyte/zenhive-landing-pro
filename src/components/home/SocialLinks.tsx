@@ -43,7 +43,7 @@ const SocialLinks = () => {
     <div className='z-10 flex justify-center items-center gap-[0.88rem] md:gap-4'>
           {
             icons.map((item)=>(
-              <a href={item.link} target='_blank'>
+              <a key={item.id} href={item.link} target='_blank'>
                 <img className='w-[28px] md:w-auto' key={item.id} src={item.icon}/>
               </a>
             ))
