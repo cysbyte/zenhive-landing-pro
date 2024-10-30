@@ -9,12 +9,12 @@ const Hero = () => {
  
       <p className='z-10 hidden md:flex gap-2 text-white font-inter w-auto font-[300] text-[20px] leading-[33px] tracking-wider items-center'>A Device built on aZen Protocol for Universal Computing Enabling <AnimationTexts/></p>
       
-      <p className='z-10 block md:hidden text-white font-inter w-[90%] font-[400] text-[14px] leading-[20px] tracking-[1px]'><p>A Device built on aZen Protocol for Universal</p> 
+      <div className='z-10 block md:hidden text-white font-inter w-[90%] font-[400] text-[14px] leading-[20px] tracking-[1px]'><p>A Device built on aZen Protocol for Universal</p> 
       <div className='flex justify-center items-center gap-1 mx-auto'>
         <p>Computing Enabling</p> 
         <AnimationTexts/>
       </div>
-      </p>
+      </div>
       <button className='z-10 invisible shadow-animate-button1 text-white rounded-full p-[2px] -mt-0 mb-64'>
         <p className='font-montserrat bg-black text-[20px] leading-[26px] font-normal text-white rounded-full py-5 px-8'>Get Early access</p>
       </button>

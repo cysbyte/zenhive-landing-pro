@@ -3,7 +3,6 @@ import Header from '../components/home/Header'
 import Hero from '../components/home/Hero'
 import Subscribe from '../components/home/Subscribe'
 import Container from '../components/container/Container'
-import NftLaunch from '../components/home/NftLaunch'
 
 const Home1 = () => {
     return (
@@ -19,7 +18,7 @@ const Home1 = () => {
             </Container>
             {/* <ClientLogos /> */}
             <Feature />
-            <NftLaunch/>
+            {/* <NftLaunch/> */}
             {/* <JoinList />
             <GetLatest /> */}
             <Subscribe />

@@ -1,41 +1,54 @@
 
-import icon1 from '../../../assets/home/join-depin/icon1.svg'
-import icon2 from '../../../assets/home/join-depin/icon2.svg'
+import { div } from 'framer-motion/client'
+import nft from '../../../assets/home/join-depin/nft.png'
+import sign from '../../../assets/home/join-depin/sign.svg'
 
 const JoinDepin = () => {
     const data = [
         {
             id: 1,
-            icon: icon1,
-            title: 'Become A Operator',
-            desc: 'Own and run a full ZenHive device, and earn more by actively managing it. Operators get higher rewards for keeping the device online and contributing to the network.'
+            nftImage: nft,
+            title: 'Operator NFT',
+            price: 599.95,
+            desc: 'Take full ownership of a ZenHive device for greater rewards from actively running the ZenHive and higher referral commissions on Operator and Delegator NFT sales.'
         },
         {
             id: 2,
-            icon: icon2,
-            title: 'Become A Delegator',
-            desc: 'Gain passive earnings by purchasing fractional ownership via NFT or staking tokens. No need to manage a device - Operators handle the work.'
+            nftImage: nft,
+            title: 'Delegator NFT',
+            price: 29.95,
+            desc: 'Gain fractional ownership in ZenHive for passive rewards and referral commissions on Delegator NFT sales. Start small and watch your earnings increase over time.'
         },
     ]
+
+    const getPriceElement = (price: number) => {
+        const arr = price.toString().split('.')
+        return <div className=''>
+            <span className='font-montserrat text-white text-[20px] leading-[36px]'>{arr[0]}.</span>
+            {arr.length>1 && <span className='font-montserrat text-white text-[16px] leading-[36px]'>{arr[1]}</span>}
+        </div>
+    }
+
     return (
         <div className="w-full mt-5 md:mt-0 flex flex-col md:flex-row justify-start gap-5 md:gap-17">
             {
                 data.map((item) => (
-                    <div className='flex-1 mt-0 md:mt-10 border-[1px] border-[#262626] px-5 md:px-12 rounded-[14px] text-start' key={item.id}>
-                        <div className='flex w-full justify-between items-center border-[#262626] border-b py-1 md:py-4'>
-                            <h3 className='font-montserrat font-[450] text-white text-[18px] md:text-[22px] leading-[22px] md:leading-[32px] tracking-wider'>{item.title}</h3>
-                            {
-                                item.id === 1 ?
-                                    <img src={item.icon} alt='' /> :
-                                    <div className="rounded-full bg-cover w-[74px] h-[74px] bg-[url('assets/home/key-features/feature-icon2.svg')] flex items-center justify-center">
-                                        <img src={item.icon} alt='' />
-                                    </div>
-                            }
+                    <div className='flex flex-col gap-4 border-[1px] border-[#262626] px-4 py-4 rounded-2xl' key={item.id}>
+                        <img src={item.nftImage} alt="" />
+                        <h3 className='text-left font-montserratSemiBold font-[600] text-[24px] leading-[36px] text-white'>{item.title}</h3>
+                        <div className='flex items-center gap-2'>
+                            <img src={sign} alt="" />
+                            <p className=''>{getPriceElement(item.price)}</p>
                         </div>
-                        <p className='font-montserrat py-4 md:py-10 font-[400] text-[#B3B3B3] text-[18px] md:text-[20px] leading-[30px] tracking-normal'>{item.desc}
-                        </p>
+                        <p className='text-[#B3B3B3] text-left font-montserrat text-[18px] leading-[27px] border-b pb-4 border-[#262626]'>{item.desc}</p>
+                        <div className='flex items-center gap-6'>
+                            <button className='bg-gradient-to-r from-[#3AE071] to-[#006F25] px-8 py-5 rounded-full text-white font-montserrat text-[18px] leading-[22px] cursor-pointer'>Buy Now</button>
+                            <button className='bg-gradient-to-r from-[#3AE071] to-[#006F25] rounded-full text-white font-montserrat text-[18px] leading-[22px] tracking-wide cursor-pointer p-[2px]'
+                            ><p className='bg-black px-8 py-5 rounded-full'>NFT Details</p></button>
+                        </div>
                     </div>
-                ))
+                )
+                )
             }
 
         </div>
