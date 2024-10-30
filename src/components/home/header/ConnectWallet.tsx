@@ -1,12 +1,13 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import { useWalletContext } from "../../../providers/WalletProvider";
+
 declare var window: any
 
 const ConnectWallet = () => {
 
-  const [, setAccount] = useState<string | null>(null);
-  const [, setChain] = useState<BigInt | null>(null);
-  const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
+  const { account, setAccount, chain, setChain, provider, setProvider } = useWalletContext();
+  
 
   const handleAccountChange = (accounts: string[]) => {
     // window.location.reload()
@@ -14,7 +15,6 @@ const ConnectWallet = () => {
     if (accounts.length > 0) {
       setAccount(accounts[0]);
       console.log("Account changed to:", accounts[0]);
-
     } else {
       setAccount(null);
       console.log("MetaMask is locked or no accounts are available.");
@@ -52,6 +52,7 @@ const ConnectWallet = () => {
     const loadProvider = async () => {
       if (sessionStorage.getItem('MetaMaskConnected') === '1') {
         const provider = new ethers.BrowserProvider(window.ethereum);
+        
         const signer = provider.getSigner();
         const userAddress = await (await signer).getAddress();
 
