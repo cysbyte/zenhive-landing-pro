@@ -25,7 +25,6 @@ const ConnectWallet = () => {
   };
 
   const handleConnectWallet = async () => {
-    debugger
     if (typeof window === "undefined") {
       throw new Error("Cannot get Metamask without a window");
     }

@@ -45,10 +45,10 @@ const Avatar = () => {
         >
             <img src={defaultAvatar} alt="" />
             {
-                showMenu && <div className='absolute flex flex-col gap-0 bg-[#202020] top-[110%] left-0 rounded-lg p-4 w-56'>
+                showMenu && <div className='absolute flex flex-col gap-0 bg-[#202020] top-[120%] right-0 rounded-lg p-2 w-48'>
                     {
                         menu.map((item) => (
-                            <div className='flex items-center justify-start gap-3 cursor-pointer hover:bg-[#404040] px-4 py-4 rounded-md' key={item.id}
+                            <div className='flex items-center justify-start gap-1 cursor-pointer hover:bg-[#404040] px-4 py-2 rounded-md' key={item.id}
                             onClick={()=>handleItemClick(item.id)}>
                                 <img src={item.icon} alt='' />
                                 <p className='text-white text-nowrap text-[18px] leading-[22px]'>{item.name}</p>
