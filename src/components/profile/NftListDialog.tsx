@@ -18,10 +18,10 @@ export default function NftListDialog(props: NftListDialogProps) {
     props.onClose();
   };
 
-  const clickOk = () => {
-    props.onOk();
-    closeDialog();
-  };
+  // const clickOk = () => {
+  //   props.onOk();
+  //   closeDialog();
+  // };
 
   const dialog: JSX.Element | null = (
       <dialog
