@@ -3,7 +3,6 @@ import { ethers } from 'ethers'
 import detectEthereumProvider from '@metamask/detect-provider';
 import ContractInteractions from '../components/wallet/ContractInteraction';
 declare var window: any
-import web3 from 'web3'
 
 const Wallet = () => {
 
