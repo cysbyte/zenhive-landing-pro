@@ -3,6 +3,7 @@ import { ethers } from 'ethers'
 import detectEthereumProvider from '@metamask/detect-provider';
 import ContractInteractions from '../components/wallet/ContractInteraction';
 declare var window: any
+import web3 from 'web3'
 
 const Wallet = () => {
 
@@ -16,7 +17,6 @@ const Wallet = () => {
         if (accounts.length > 0) {
             setAccount(accounts[0]);
             console.log("Account changed to:", accounts[0]);
-
         } else {
             setAccount(null);
             console.log("MetaMask is locked or no accounts are available.");
@@ -24,6 +24,7 @@ const Wallet = () => {
     };
     const handleChainChange = (chainId: BigInt) => {
         setChain(chainId)
+        
     };
 
     const connectWallet = async () => {
