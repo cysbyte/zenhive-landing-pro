@@ -31,9 +31,9 @@ const Avatar = () => {
             navigate('/profile')
         }
         if(itemId === 3) {
+            provider?.destroy()
             setProvider(null)
             setAccount(null)
-            provider?.pause()
             sessionStorage.setItem('MetaMaskConnected', '0')
         }
     }

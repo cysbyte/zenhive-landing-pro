@@ -25,6 +25,7 @@ const ConnectWallet = () => {
   };
 
   const handleConnectWallet = async () => {
+    debugger
     if (typeof window === "undefined") {
       throw new Error("Cannot get Metamask without a window");
     }
@@ -52,7 +53,6 @@ const ConnectWallet = () => {
     const loadProvider = async () => {
       if (sessionStorage.getItem('MetaMaskConnected') === '1') {
         const provider = new ethers.BrowserProvider(window.ethereum);
-        
         const signer = provider.getSigner();
         const userAddress = await (await signer).getAddress();
 
