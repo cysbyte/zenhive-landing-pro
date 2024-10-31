@@ -1,20 +1,31 @@
 import Container from '../components/container/Container'
-import JoinDepin from '../components/home/feature/JoinDepin'
 import Header from '../components/home/Header'
+import Subscribe from '../components/home/Subscribe'
+import Both from '../components/share-and-earn/Both'
+import Delegator from '../components/share-and-earn/Delegator'
+import Empty from '../components/share-and-earn/Empty'
+import Operator from '../components/share-and-earn/Operator'
+import { useWalletContext } from '../providers/WalletProvider'
 
 const ShareAndEarn = () => {
-
+    const { userType } = useWalletContext();
     return (
         <main className='overflow-x-hidden bg-black'>
             <Container>
                 <Header />
-                <div className='mx-10 md:mx-24 bg-[#0B0B0B] py-10 mt-10 border-[#0E9A3D] border-[1px] rounded-lg'>
-                    <h1 className='font-montserratSemiBold mx-auto text-center text-white text-[32px] leading-[40px]'>You don't own any NFTs yet.</h1>
-                </div>
-                <h3 className='font-montserrat mx-10 md:mx-24 my-8 text-white text-[22px] leading-[44px]'>Get NFT to start earning.</h3>
-                <div className='mx-10 md:mx-24'>
-                    <JoinDepin />
-                </div>
+                {
+                    userType === 1 && <Empty />
+                }
+                {
+                    userType === 2 && <Delegator />
+                }
+                {
+                    userType === 3 && <Operator />
+                }
+                {
+                    userType === 4 && <Both />
+                }
+                <Subscribe />
             </Container>
         </main>
     )

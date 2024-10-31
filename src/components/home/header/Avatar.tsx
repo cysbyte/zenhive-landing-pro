@@ -26,7 +26,7 @@ const Avatar = () => {
             icon: disconnectIcon
         },
     ]
-    const handleItemClick = (itemId: number)=>{
+    const handleItemClick = async (itemId: number)=>{
         if(itemId === 1) {
             navigate('/profile')
         }
@@ -34,7 +34,7 @@ const Avatar = () => {
             navigate('/shareandearn')
         }
         if(itemId === 3) {
-            provider?.destroy()
+            await provider?.destroy()
             setProvider(null)
             setAccount(null)
             sessionStorage.setItem('MetaMaskConnected', '0')

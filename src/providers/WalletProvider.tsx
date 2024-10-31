@@ -10,6 +10,8 @@ interface WalletContextType {
   setChain: Dispatch<SetStateAction<BigInt | null>>;
   provider: ethers.BrowserProvider | null;
   setProvider: Dispatch<SetStateAction<ethers.BrowserProvider | null>>;
+  userType: number;
+  setUserType: Dispatch<SetStateAction<number>>;
 }
 
 const defaultContext: WalletContextType = {
@@ -19,6 +21,8 @@ const defaultContext: WalletContextType = {
   setAccount: () => { },
   chain: null,
   setChain: () => { },
+  userType: 1,
+  setUserType: () => { },
   provider: null,
   setProvider: () => { }
 };
@@ -30,6 +34,7 @@ export const AccountProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [chain, setChain] = useState<BigInt | null>(null);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
+  const [userType, setUserType] = useState<number>(2);
 
   return (
     <WalletContext.Provider value={{
@@ -41,6 +46,8 @@ export const AccountProvider: React.FC<{ children: ReactNode }> = ({ children })
       setShowMenu,
       provider,
       setProvider,
+      userType,
+      setUserType
     }}>
       {children}
     </WalletContext.Provider>

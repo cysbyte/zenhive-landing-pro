@@ -23,7 +23,7 @@ export default function NftListDialog(props: NftListDialogProps) {
   //   closeDialog();
   // };
 
-  const dialog: JSX.Element | null = (
+  return (
       <dialog
         ref={dialogRef}
         className="bg-[#0D0D0D] fixed w-[1126px] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10 rounded-xl backdrop:bg-black/80 overflow-auto hide-scrollbar px-12 py-8 -mt-4"
@@ -37,6 +37,4 @@ export default function NftListDialog(props: NftListDialogProps) {
 
       </dialog>
     ) ;
-
-  return dialog;
 }
