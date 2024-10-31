@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Wallet from './pages/Wallet';
 import { AccountProvider } from './providers/WalletProvider';
 import Profile from './pages/Profile';
+import ShareAndEarn from './pages/ShareAndEarn';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path='/signup' element={<Signup />} />
             <Route path='/wallet' element={<Wallet />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/shareandearn' element={<ShareAndEarn />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Router>

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import NftList from "./NftList";
 import close from '../../assets/profile/close.svg'
 

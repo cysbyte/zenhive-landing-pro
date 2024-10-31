@@ -30,6 +30,9 @@ const Avatar = () => {
         if(itemId === 1) {
             navigate('/profile')
         }
+        if(itemId === 2) {
+            navigate('/shareandearn')
+        }
         if(itemId === 3) {
             provider?.destroy()
             setProvider(null)

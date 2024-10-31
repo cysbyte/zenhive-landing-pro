@@ -33,9 +33,9 @@ const JoinDepin = () => {
         <div className="w-full mt-5 md:mt-8 flex flex-col md:flex-row justify-start gap-8 md:gap-17">
             {
                 data.map((item) => (
-                    <div className='flex-1 flex flex-col gap-4 border-[1px] border-[#262626] px-4 py-4 rounded-2xl' key={item.id}>
+                    <div className='flex-1 flex flex-col gap-3 border-[1px] border-[#262626] px-4 py-4 rounded-2xl' key={item.id}>
                         <img src={item.nftImage} alt="" />
-                        <h3 className='text-left font-montserratSemiBold font-[600] text-[20px] md:text-[24px] leading-[36px] text-white'>{item.title}</h3>
+                        <h3 className='text-left font-montserratSemiBold font-[600] mt-2 text-[20px] md:text-[24px] leading-[36px] text-white'>{item.title}</h3>
                         <div className='flex items-center justify-start gap-2'>
                             <h6 className='text-[#26B957] text-[16px] leading-[36px]'>-50%</h6>
                             <p className='inline-block'>{getPriceElement(item.price)}</p>
