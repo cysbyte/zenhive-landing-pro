@@ -8,14 +8,14 @@ const DelegatorNftList = () => {
     const [showDetailDialog, setShowDetailDialog] = useState(false);
     const [showListDialog, setShowListDialog] = useState(false);
     return (
-        <div className='px-10 md:px-24 py-10 bg-[#0A0A0A] rounded-xl flex flex-col gap-4 items-start justify-center '>
+        <div className='px-8 py-10 bg-[#0A0A0A] rounded-xl flex flex-col gap-4 items-start justify-center '>
             <div className='w-full border-b border-white border-opacity-20'>
                 <div className='inline-flex items-center border-b-2 w-auto pb-2 -mb-[1.5px]'>
                     <p className='text-white text-[16px] leading-[22px] font-montserrat'>Owned</p>
                     <p className='font-montserrat rounded-sm w-4 bg-white text-black border-b border-[1px] border-white text-center leading-4'> 1 </p>
                 </div>
             </div>
-            <div>
+            <div className='mt-1'>
                 <div className='p-2 rounded-lg border-[1px] border-[#2D2D2D]'>
                     <img
                         onClick={() => setShowDetailDialog(true)}
