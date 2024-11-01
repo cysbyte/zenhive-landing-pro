@@ -1,12 +1,14 @@
+import React from 'react'
 import avatar from '../assets/profile/avatar.svg'
 import bgProfile from '../assets/profile/bg-profile.svg'
 import Container from '../components/container/Container'
 import Header from '../components/home/Header'
-import BothNftList from '../components/profile/BothNftList'
-import DelegatorNftList from '../components/profile/DelegatorNftList'
-import EmplyNftList from '../components/profile/EmplyNftList'
-import OperatorNftList from '../components/profile/OperatorNftList'
 import { useWalletContext } from '../providers/WalletProvider'
+
+const EmplyNftList = React.lazy(() => import('../components/profile/EmplyNftList'));
+const DelegatorNftList = React.lazy(() => import('../components/profile/DelegatorNftList'));
+const OperatorNftList = React.lazy(() => import('../components/profile/OperatorNftList'));
+const BothNftList = React.lazy(() => import('../components/profile/BothNftList'));
 
 const Profile = () => {
     const { account, userType } = useWalletContext();

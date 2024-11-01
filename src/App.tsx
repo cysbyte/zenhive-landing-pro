@@ -1,14 +1,16 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import Signin from './pages/Signin';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import PageNotFound from './pages/PageNotFound';
-import Signup from './pages/Signup';
-import Wallet from './pages/Wallet';
 import { AccountProvider } from './providers/WalletProvider';
-import Profile from './pages/Profile';
-import ShareAndEarn from './pages/ShareAndEarn';
+import { Suspense } from 'react';
+import React from 'react';
+const Home = React.lazy(() => import('./pages/Home'));
+const Signup = React.lazy(() => import('./pages/Signup'));
+const Wallet = React.lazy(() => import('./pages/Wallet'));
+const Profile = React.lazy(() => import('./pages/Profile'));
+const ShareAndEarn = React.lazy(() => import('./pages/ShareAndEarn'));
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID!}>
       <AccountProvider>
         <Router>
+        <Suspense fallback={<div className='w-screen h-screen bg-black text-white flex items-center justify-center'></div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/signin' element={<Signin />} />
@@ -25,6 +28,7 @@ function App() {
             <Route path='/shareandearn' element={<ShareAndEarn />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          </Suspense>
         </Router>
       </AccountProvider>
     </GoogleOAuthProvider>

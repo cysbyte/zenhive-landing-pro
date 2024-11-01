@@ -34,7 +34,7 @@ export const AccountProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [chain, setChain] = useState<BigInt | null>(null);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
-  const [userType, setUserType] = useState<number>(4);
+  const [userType, setUserType] = useState<number>(2);
 
   return (
     <WalletContext.Provider value={{
