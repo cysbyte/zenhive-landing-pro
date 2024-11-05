@@ -14,7 +14,7 @@ const JoinList = () => {
             placeholder={`Email`}
             />
         </div>
-        <button className='bg-[#25DAC5] font-[500] text-[20px] font-dmsans leading-[26px] text-white rounded-full px-8 py-[0.92rem] md:py-[1.1rem] w-full md:w-auto text-nowrap'>Sign Up</button>
+        <button className='bg-[#25DAC5] font-[500] text-[20px] font-dmsans leading-[26px] text-white rounded-full px-8 py-[0.92rem] md:py-[1.1rem] w-auto md:w-auto text-nowrap'>Sign Up</button>
     </div>
   )
 }

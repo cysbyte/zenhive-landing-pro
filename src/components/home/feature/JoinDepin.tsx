@@ -41,8 +41,8 @@ const JoinDepin = () => {
                             <p className='inline-block'>{getPriceElement(item.price)}</p>
                         </div>
                         <p className='text-[#B3B3B3] text-left font-montserrat text-[14px] md:text-[18px] leading-[27px] border-b pb-4 border-[#262626]'>{item.desc}</p>
-                        <div className='flex flex-col md:flex-row items-center gap-6'>
-                            <button className='w-full md:w-auto bg-gradient-to-r from-[#3AE071] to-[#006F25] px-8 py-5 rounded-full text-white font-montserrat text-[14px] md:text-[18px] leading-[22px] cursor-pointer'>Buy Now</button>
+                        <div className='flex flex-col md:flex-row items-start md:items-center gap-6'>
+                            <button className='w-auto bg-gradient-to-r from-[#3AE071] to-[#006F25] px-8 py-3 md:py-5 rounded-full text-white font-montserrat text-[14px] md:text-[18px] leading-[22px] cursor-pointer'>Buy Now</button>
                             {/* <button className='w-full md:w-auto bg-gradient-to-r from-[#3AE071] to-[#006F25] rounded-full text-white font-montserrat text-[14px] md:text-[18px] leading-[22px] tracking-wide cursor-pointer p-[2px]'
                             ><p className='bg-black px-8 py-5 rounded-full'>NFT Details</p></button> */}
                         </div>
